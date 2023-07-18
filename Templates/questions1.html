@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block page_name %} Question 2 {% endblock %}
+
+{% block content %}
+<h2>Question 2 </h2>
+<p>{{question.question}}</p>
+<form action="/answers/new" method="POST">
+    <div>
+        {% for choice in question.choices %}
+    <p>
+        <input type="radio" name="answer" value="{{choice}}">{{choice}}
+    </p>
+    {% endfor %}
+        <!-- <input type="radio" id="yes" name="yn" value=“yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="yn" value=“no">
+        <label for="no">No</label> -->
+    </div>
+</form>
+<form action="/questions2">
+    <button>Next</button>
+</form>
+
+{% endblock %}

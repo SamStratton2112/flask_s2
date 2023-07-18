@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content %}
+<h2>{{question.question[ids]}}</h2>
+
+<form action="/answers" method="POST">
+    <h1>{{question.question}}</h1>
+    {% for choice in question.choices %}
+    <p>
+        <input type="radio" name="answer" id="{{ids}}" value="{{choice}}">{{choice}}
+    </p>
+    {%endfor%}
+</form>
+<form>
+    <button action="/questions/<int: ids+1>">Next</button>
+</form>
+{% endblock %}
